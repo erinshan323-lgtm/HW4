@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campus Customs App Check</title>
+  <style>
+    :root { --blue: #00356b; --ink: #12243b; --gold: #d7a84b; --line: #dbe3ea; --paper: #fbfaf7; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font: 16px/1.6 Arial, sans-serif; }
+    header { padding: 64px max(24px, calc((100vw - 1120px) / 2)); color: white; background: var(--blue); border-top: 6px solid var(--gold); }
+    header p { max-width: 720px; margin-bottom: 0; color: #dce8f3; }
+    h1 { margin: 0; font: 48px/1.1 Georgia, serif; }
+    main { width: min(1120px, calc(100% - 40px)); margin: 0 auto; padding: 52px 0 80px; }
+    section { margin-bottom: 56px; padding-bottom: 56px; border-bottom: 1px solid var(--line); }
+    section:last-child { border-bottom: 0; }
+    .number { color: #c63d4f; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    h2 { margin: 6px 0 10px; color: var(--blue); font: 34px/1.2 Georgia, serif; }
+    .caption { max-width: 820px; margin: 0 0 24px; color: #52677b; }
+    figure { margin: 0; padding: 10px; background: white; border: 1px solid var(--line); box-shadow: 0 16px 40px rgba(7,34,61,.09); }
+    img { display: block; width: 100%; height: auto; }
+    figcaption { padding: 12px 8px 4px; color: #52677b; font-size: 14px; }
+    code { color: var(--blue); font-weight: 700; }
+    @media (max-width: 640px) { h1 { font-size: 38px; } h2 { font-size: 28px; } main { width: min(100% - 24px, 1120px); } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Campus Customs App Check</h1>
+    <p>Browser evidence from the running React and FastAPI application. All product, price, and inventory values shown below came from the supplied SQLite database.</p>
+  </header>
+  <main>
+    <section>
+      <p class="number">Check 01</p>
+      <h2>Database-backed price and inventory</h2>
+      <p class="caption">From the Basic Hoodie Big Yale page, the shopper asks about “this item.” The assistant uses page context and the database to report the correct $68.00 price and 15 units in size XS.</p>
+      <figure><img src="app_check_images/inventory_chat.png" alt="Chat reports the Basic Hoodie Big Yale price and XS inventory"><figcaption>The product page and chat answer show matching, database-backed information.</figcaption></figure>
+    </section>
+    <section>
+      <p class="number">Check 02</p>
+      <h2>Chat search updates the page</h2>
+      <p class="caption">After the shopper asks “What hoodies do you have?”, the API returns structured matches and the React page renders six linked product cards with images, descriptions, and prices.</p>
+      <figure><img src="app_check_images/dynamic_results.png" alt="Hoodie results rendered as product cards after a chat search"><figcaption>Both the chat response and the page-level “Matches for you” section are visible.</figcaption></figure>
+    </section>
+    <section>
+      <p class="number">Check 03</p>
+      <h2>Fast catalogue filtering</h2>
+      <p class="caption">The Problem 9 search control filters the full 102-item catalogue immediately. Entering <code>hoodie</code> narrows the result count to 27 and preserves clickable product cards.</p>
+      <figure><img src="app_check_images/product_filter.png" alt="Products page filtered to hoodie items"><figcaption>The filter term, result count, and matching hoodie cards are visible together.</figcaption></figure>
+    </section>
+  </main>
+</body>
+</html>
